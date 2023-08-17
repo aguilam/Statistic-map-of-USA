@@ -9,17 +9,18 @@ export default function Home() {
   const mapContainer = useRef(null);
   const map = useRef(null);
   
-  const [lng, setLng] = useState(-90);
-  const [lat, setLat] = useState(38.5);
-  const [zoom, setZoom] = useState(4.3);
+  const [lng, setLng] = useState(-100);
+  const [lat, setLat] = useState(35);
+  const [zoom, setZoom] = useState(1.9);
   
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current) return;
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: 'mapbox://styles/mapbox/dark-v11',
+        style: 'mapbox://styles/aguilam/cllfciqf0013c01pl9h0zgi6n',
         center: [lng, lat],
         zoom: zoom,
+        /*
         scrollZoom: false,
         dragging:false,
         touchZoom:false,
@@ -27,7 +28,9 @@ export default function Home() {
         scrollWheelZoom:false,
         keyboard:false,
         dragPan: false
+        */
       });
+      console.log(zoom)
     });
   return (
     <main className='mep'>
