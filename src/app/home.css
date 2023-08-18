@@ -1,6 +1,14 @@
 .mep{
   height: 100vh;
+  display: flex;
+  flex-direction: row;
 }
 .map-container {
   height: 100%;
+  width: 75vw;
+}
+.panel-container {
+  height: 100%;
+  width: 30vw;
+  background-color: gray;
 }

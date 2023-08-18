@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl';
+import Statistic_panel from './statistic-panel';
 import './home.css'
  
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWd1aWxhbSIsImEiOiJjbGFpNHQ5djUwZ2piNDFtcGs2aWpvemNxIn0.BUSxqZAyOrBKyPzLphCA_A';
@@ -13,6 +14,10 @@ export default function Home() {
   const [lat, setLat] = useState(35);
   const [zoom, setZoom] = useState(1.9);
   
+  const onStates = () => {
+    console.log("Zoom-")
+    setZoom(3.1)
+  }
   useEffect(() => {
     if (map.current) return;
       map.current = new mapboxgl.Map({
@@ -31,10 +36,11 @@ export default function Home() {
         */
       });
       console.log(zoom)
-    });
+    },[zoom, lat, lng]);
   return (
     <main className='mep'>
       <div ref={mapContainer} className="map-container" />
+      <Statistic_panel></Statistic_panel>
     </main>
   )
 }
